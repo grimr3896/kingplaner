@@ -4,9 +4,10 @@ import Button from './Button';
 
 interface LandingProps {
   onStart: () => void;
+  onExample: () => void;
 }
 
-const Landing: React.FC<LandingProps> = ({ onStart }) => {
+const Landing: React.FC<LandingProps> = ({ onStart, onExample }) => {
   return (
     <div className="relative overflow-hidden pt-16 md:pt-32 px-6">
       {/* Background blobs for premium feel */}
@@ -35,7 +36,7 @@ const Landing: React.FC<LandingProps> = ({ onStart }) => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
             </svg>
           </Button>
-          <Button variant="ghost" size="lg" className="text-stone-400">
+          <Button variant="outline" size="lg" className="text-indigo-600 border-stone-200" onClick={onExample}>
             See Example Review
           </Button>
         </div>

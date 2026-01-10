@@ -30,6 +30,17 @@ const App: React.FC = () => {
     }
   };
 
+  const handleExample = () => {
+    const examplePlan: UserPlan = {
+      text: "I’m a first-year university student with skills in AI automation, POS system development, and digital design. I want to grow my services while studying, but I also want to understand the risks, legal considerations, and realistic time constraints. I may take some risks if they lead to faster growth, but I don’t want to fail my studies. Help me.",
+      type: 'General',
+      focusAreas: ['Everything'],
+      mode: 'develop',
+      riskPreference: 'high'
+    };
+    handleAnalyze(examplePlan);
+  };
+
   const handleReset = () => {
     setState('input');
     setAnalysis(null);
@@ -60,7 +71,7 @@ const App: React.FC = () => {
 
       <main className="pb-24">
         {state === 'landing' && (
-          <Landing onStart={handleStart} />
+          <Landing onStart={handleStart} onExample={handleExample} />
         )}
 
         {state === 'input' && (
@@ -94,7 +105,7 @@ const App: React.FC = () => {
             </div>
             <div className="text-center space-y-2 animate-in fade-in slide-in-from-bottom-4 duration-1000">
               <h2 className="text-2xl font-bold text-slate-800">Reviewing your blueprint...</h2>
-              <p className="text-stone-500 max-w-sm mx-auto">
+              <p className="text-stone-500 max-sm mx-auto">
                 Identifying flaws, calculating risks, and hunting for logical gaps without changing your original vision.
               </p>
             </div>
